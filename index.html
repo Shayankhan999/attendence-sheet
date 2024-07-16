@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Multi-Section Page</title>
+</head>
+<body>
+    <div id="main-page" class="container">
+        <button class="button" onclick="showSection('admin-panel')">Administration Panel</button>
+        <button class="button" onclick="showSection('registration-form')">Registration Form</button>
+        <button class="button" onclick="showSection('login-form')">Log In</button>
+    </div>
+
+    <div id="admin-panel" class="section hidden">
+        <h1>Administration Panel</h1>
+        <!-- Administration panel content goes here -->
+        <button class="button" onclick="showSection('main-page')">Back to Main</button>
+    </div>
+
+    <div id="registration-form" class="section hidden">
+        <h1>Registration Form</h1>
+        <form>
+            <label class="la">
+                NAME
+                <br/>
+                <input type="text" placeholder="name" id="reg-name">
+            </label>
+            <br>
+            <label class="la">
+                EMAIL
+                <br/>
+                <input type="email" placeholder="email" id="reg-email">
+            </label>
+            <br>
+            <label class="la">
+                PASSWORD
+                <br/>
+                <input type="password" placeholder="password" id="reg-password">
+            </label>
+            <br>
+            <label class="la">
+                DATE OF BIRTH
+                <br/>
+                <input type="date" id="reg-dob">
+            </label>
+            <br>
+            <label class="la">
+                GENDER
+                <br/>
+                <select id="reg-gender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            </label>
+            <br>
+            <label class="la">
+                CLASS
+                <br/>
+                <input type="text" placeholder="class" id="reg-class">
+            </label>
+            <br/>
+            <button type="button" class="button" onclick="register()">Register</button>
+            <button type="button" class="button" onclick="showSection('main-page')">Back to Main</button>
+        </form>
+    </div>
+
+    <div id="login-form" class="section hidden">
+        <h1>LOG-IN</h1>
+        <form>
+            <label class="la">
+                NAME
+                <br/>
+                <input type="text" placeholder="name" id="login-name">
+            </label>
+            <br>
+            <label class="la">
+                EMAIL
+                <br/>
+                <input type="email" placeholder="email" id="login-email">
+            </label>
+            <br>
+            <label class="la">
+                PASSWORD
+                <br/>
+                <input type="password" placeholder="password" id="login-password">
+            </label>
+            <br/>
+            <button type="button" class="button" onclick="login()">LOG-IN</button>
+            <button type="button" class="button" onclick="showSection('main-page')">Back to Main</button>
+        </form>
+    </div>
+
+    <div id="attendance-page" class="section hidden">
+        <h1>Attendance</h1>
+        <table id="attendance-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Present</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Students will be populated here by JavaScript -->
+            </tbody>
+        </table>
+        <button class="button" onclick="logout()">Log Out</button>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
